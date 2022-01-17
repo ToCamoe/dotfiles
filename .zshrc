@@ -87,6 +87,7 @@ source $ZSH/oh-my-zsh.sh
 
 #zsh-autosuggestions
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#121212,bg=#c6c6c6"
+ZSH_AUTOSUGGEST_HISTORY_IGNORE="(cd *|curl *|git commit *|git push *|ssh *)"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
