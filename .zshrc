@@ -85,6 +85,9 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+#zsh-autosuggestions
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#121212,bg=#c6c6c6"
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
