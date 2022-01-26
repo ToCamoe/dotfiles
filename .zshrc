@@ -122,4 +122,6 @@ source ~/.zprofile
 
 alias ll='ls -alF'
 alias la='ls -A'
+alias lah='ls -alh'
 alias l='ls -CF'
+alias nim="nvim"
