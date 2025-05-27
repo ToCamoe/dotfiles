@@ -1,5 +1,6 @@
 ### Requirements
 * NeoVim > 0.10.0
+
 For NeoVim Plugins:
 ```
 golangci-lint
