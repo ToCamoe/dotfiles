@@ -1,18 +1,31 @@
-# Node Version Manager
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+alias ll='ls -halF --color=always'
+alias la='ls -A'
+alias lah='ls -alh'
+alias l='ls -CF'
+alias sourcetmux='tmux source ~/.tmux.conf'
+alias grep='grep -n --color=always'
+
+export EDITOR='nvim'
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
 
 #Golang
 export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
-export GOPATH=$HOME/go
-
-#Postgres
-export PATH=/Library/PostgreSQL/14/bin:$PATH
 
 #Python env
 export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
+eval "$(pyenv virtualenv-init - zsh)"
+
+#JAVA
+export JAVA_HOME="/usr/lib/jvm/java-1.8.0-openjdk-amd64"
+export PATH=$JAVA_HOME/bin:$PATH
