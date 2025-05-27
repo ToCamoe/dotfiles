@@ -49,18 +49,32 @@ return require("packer").startup(function(use)
   -- Lualine
   use 'nvim-lualine/lualine.nvim'
 
-  -- NvimTree
-  use {
-    'nvim-tree/nvim-tree.lua',
-    requires = 'nvim-tree/nvim-web-devicons'
-  }
+  -- NeoTree
+	use {
+		"nvim-neo-tree/neo-tree.nvim",
+		branch = "v3.x",
+		requires = {
+			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-web-devicons",
+			"MunifTanjim/nui.nvim",
+		}
+	}
+
+	-- BufferLine
+	use {
+		'akinsho/bufferline.nvim',
+		tag = "*",
+		requires = 'nvim-tree/nvim-web-devicons',
+		config = function()
+			require("bufferline").setup{}
+		end
+	}
 
   -- LSP
   use {
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig",
-    "hrsh7th/cmp-nvim-lsp",
   }
 
   -- Lint
@@ -77,10 +91,6 @@ return require("packer").startup(function(use)
 	-- Snippets engine
 	use 'L3MON4D3/LuaSnip'
 	use 'rafamadriz/friendly-snippets'
-
-  -- Snippets
-  use 'L3MON4D3/LuaSnip'
-  use 'rafamadriz/friendly-snippets'
 
   if packer_bootstrap then
     require('packer').sync()
