@@ -3,5 +3,6 @@ require('lualine').setup {
     theme = 'onehalf',
     section_separators = '',
     component_separators = ''
-  }
+  },
+  extensions = { 'neo-tree' }
 }

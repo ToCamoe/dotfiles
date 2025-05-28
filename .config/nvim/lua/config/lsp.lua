@@ -7,7 +7,7 @@ local lspconfig = require("lspconfig")
 lspconfig.gopls.setup {}
 
 -- YAML
-lspconfig.yamlls.setup {
+lspconfig.yamlls.setup({
   settings = {
     yaml = {
       schemas = {
@@ -17,5 +17,8 @@ lspconfig.yamlls.setup {
       validate = true,
     },
   },
-}
+})
+
+vim.o.updatetime = 300
+vim.cmd [[autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focus = false })]]
 

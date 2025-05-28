@@ -79,14 +79,33 @@ return require("packer").startup(function(use)
 
   -- Lint
   use 'mfussenegger/nvim-lint'
+
+	-- Troubel
+	use {
+		"folke/trouble.nvim",
+		requires = "nvim-tree/nvim-web-devicons",
+		config = function()
+			require("trouble").setup {}
+		end
+	}
+
 	-- Autocompletion core
 	use 'hrsh7th/nvim-cmp'
 
 	-- Completion sources
-	use 'hrsh7th/cmp-nvim-lsp'      -- для LSP
-	use 'hrsh7th/cmp-buffer'        -- для текста из буфера
-	use 'hrsh7th/cmp-path'          -- пути файлов
-	use 'saadparwaiz1/cmp_luasnip'  -- snippets
+	use 'hrsh7th/cmp-nvim-lsp'
+	use 'hrsh7th/cmp-buffer'
+	use 'hrsh7th/cmp-path'
+	use 'saadparwaiz1/cmp_luasnip'
+
+	-- for Lua and Neovim API
+	use {
+		"folke/lazydev.nvim",
+		ft = "lua",
+		config = function()
+			require("lazydev").setup()
+	 end
+	}
 
 	-- Snippets engine
 	use 'L3MON4D3/LuaSnip'
