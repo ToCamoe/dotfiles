@@ -21,4 +21,3 @@ lspconfig.yamlls.setup({
 
 vim.o.updatetime = 300
 vim.cmd [[autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focus = false })]]
-

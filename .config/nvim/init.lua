@@ -13,6 +13,7 @@ require("config.lsp")
 require("config.lint")
 require("config.cmp")
 require("config.filetypes")
+require("config.toggleterm")
 
 -- Горячие клавиши
 require("keymaps")

@@ -36,6 +36,18 @@ return require("packer").startup(function(use)
     run = ':TSUpdate'
   }
 
+	--Markdown preview
+  use 'ellisonleao/glow.nvim'
+  use 'simrat39/symbols-outline.nvim'
+  -- install without yarn or npm
+  use({
+    "iamcco/markdown-preview.nvim",
+    run = function() vim.fn["mkdp#util#install"]() end,
+  })
+
+	--Language packs
+  use 'sheerun/vim-polyglot'
+
   -- Telescope
   use {
     'nvim-telescope/telescope.nvim',
@@ -43,6 +55,7 @@ return require("packer").startup(function(use)
   }
   use 'nvim-telescope/telescope-project.nvim'
   use 'nvim-telescope/telescope-packer.nvim'
+  use 'nvim-telescope/telescope-file-browser.nvim'
   use 'doctorfree/cheatsheet.nvim'
   use 'wesleimp/telescope-windowizer.nvim'
 
@@ -69,6 +82,9 @@ return require("packer").startup(function(use)
 			require("bufferline").setup{}
 		end
 	}
+
+  -- Toggleterm terminal like vscode
+  use { "akinsho/toggleterm.nvim", version = "*" }
 
   -- LSP
   use {
@@ -110,6 +126,18 @@ return require("packer").startup(function(use)
 	-- Snippets engine
 	use 'L3MON4D3/LuaSnip'
 	use 'rafamadriz/friendly-snippets'
+
+	-- which key help
+	use {
+		"folke/which-key.nvim",
+		requires = {
+			"echasnovski/mini.icons",
+		},
+		keys = "<leader>",  -- boot after use <leader>
+		config = function()
+			require("which-key").setup({})
+		end
+	}
 
   if packer_bootstrap then
     require('packer').sync()
